@@ -1,0 +1,27 @@
+{
+  "name": "scrape-url",
+  "version": "0.0.0",
+  "description": "Scrape URLs with CSS selectors",
+  "main": "index.js",
+  "scripts": {
+    "test": "fox"
+  },
+  "dependencies": {
+    "jsdom": "*"
+  },
+  "devDependencies": {
+    "fox": "*"
+  },
+  "keywords": [
+    "scrape",
+    "soup",
+    "scraping",
+    "beautifulsoup"
+  ],
+  "repository": {
+    "url": "git@github.com:azer\/scrape-url.git",
+    "type": "git"
+  },
+  "author": "Azer Ko\u00e7ulu <azer@kodfabrik.com>",
+  "license": "BSD"
+}
