@@ -27,7 +27,7 @@ scrape('http://news.ycombinator.com', '.title a', function (error, matches) {
 Multiple selectors:
 
 ```js
-scrape('http://news.ycombinator.com', ['.title a', '.foo #bar'], function (error, titles, foobar) {
+scrape('http://news.ycombinator.com', ['.title a', '.pagetop a'], function (error, titles, foobar) {
  // 
 })
 ```
