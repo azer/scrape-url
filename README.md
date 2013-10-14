@@ -2,6 +2,14 @@
 
 Scrape URLs with CSS selectors
 
+## Install
+
+```bash
+$ npm install scrape-url
+```
+
+## Usage
+
 ```js
 scrape = require('scrape-url')
 
@@ -16,8 +24,10 @@ scrape('http://news.ycombinator.com', '.title a', function (error, matches) {
 })
 ```
 
-## Install
+Multiple selectors:
 
-```bash
-$ npm install scrape-url
+```js
+scrape('http://news.ycombinator.com', ['.title a', '.foo #bar'], function (error, titles, foobar) {
+ // 
+})
 ```
