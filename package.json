@@ -1,6 +1,6 @@
 {
   "name": "scrape-url",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scrape URLs with CSS selectors",
   "main": "index.js",
   "dependencies": {
