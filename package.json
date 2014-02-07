@@ -3,14 +3,9 @@
   "version": "0.0.1",
   "description": "Scrape URLs with CSS selectors",
   "main": "index.js",
-  "scripts": {
-    "test": "fox"
-  },
   "dependencies": {
-    "jsdom": "*"
-  },
-  "devDependencies": {
-    "fox": "*"
+    "cheerio": "~0.13.1",
+    "request": "~2.33.0"
   },
   "keywords": [
     "scrape",

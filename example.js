@@ -4,11 +4,12 @@ scrape('http://news.ycombinator.com', ['.title a', '.pagetop a'], function (erro
 
   if(error) throw error;
 
-  titles.forEach(function (el) {
-    console.log('> ', el.innerHTML);
+  titles.forEach(function (el, ind) {
+    console.log('  %d. %s', ind, el.html());
   });
 
-  nav.forEach(function (el) {
-    console.log(el.innerHTML);
+  console.log('\n\nNavigation');
+  nav.forEach(function (el, ind) {
+    console.log('  %d. %s', ind, el.html());
   });
 });
