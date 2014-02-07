@@ -1,11 +1,12 @@
 {
   "name": "scrape-url",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Scrape URLs with CSS selectors",
   "main": "index.js",
   "dependencies": {
     "cheerio": "~0.13.1",
-    "request": "~2.33.0"
+    "request": "~2.33.0",
+    "debug": "~0.7.4"
   },
   "keywords": [
     "scrape",

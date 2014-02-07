@@ -1,6 +1,6 @@
 var scrape = require("./");
 
-scrape('http://news.ycombinator.com', ['.title a', '.pagetop a'], function (error, titles, nav) {
+scrape('news.ycombinator.com', ['.title a', '.pagetop a'], function (error, titles, nav) {
 
   if(error) throw error;
 

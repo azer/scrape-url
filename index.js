@@ -1,9 +1,14 @@
+var debug = require("debug")('scrape-url');
 var request = require("request");
 var parse = require("cheerio").load;
 
 module.exports = scrape;
 
 function scrape (url, selectors, callback) {
+  !/\w:\/\//.test(url) && (url = 'http://' + url);
+
+  debug('Scraping %s', url);
+
   request(url, function (error, response, body) {
     if(error) return callback(error);
     if (response.statusCode != 200) return;
