@@ -13,3 +13,7 @@ scrape('news.ycombinator.com', ['.title a', '.pagetop a'], function (error, titl
     console.log('  %d. %s', ind, el.html());
   });
 });
+
+scrape.post({ url: 'www.w3schools.com/php/welcome.php', form: { name: 'foo', email: 'bar', } }, 'body', function (error, content) {
+  console.log('Name & e-mail:', content[0].html());
+});

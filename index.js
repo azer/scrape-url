@@ -2,14 +2,25 @@ var debug = require("debug")('scrape-url');
 var request = require("request");
 var parse = require("cheerio").load;
 
-module.exports = scrape;
+module.exports = get;
+module.exports.post = post;
 
-function scrape (url, selectors, callback) {
-  !/\w:\/\//.test(url) && (url = 'http://' + url);
+function post (options, selectors, callback) {
+  scrape('post', options, selectors, callback);
+}
 
-  debug('Scraping %s', url);
+function get (url, selectors, callback) {
+  scrape('get', { url: url }, selectors, callback);
+}
 
-  request(url, function (error, response, body) {
+function scrape (method, options, selectors, callback) {
+  !/\w:\/\//.test(options.url) && (options.url = 'http://' + options.url);
+
+  debug('%s %s', method.toUpperCase(), options.url);
+
+  request[method](options, match);
+
+  function match (error, response, body) {
     if(error) return callback(error);
     if (response.statusCode != 200) return;
 
@@ -28,7 +39,6 @@ function scrape (url, selectors, callback) {
       return elements;
     }));
 
-
     callback.apply(undefined, result);
-  });
+  }
 }
