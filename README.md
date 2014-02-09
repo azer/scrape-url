@@ -27,7 +27,20 @@ scrape('http://news.ycombinator.com', '.title a', function (error, matches) {
 Multiple selectors can be passed:
 
 ```js
-scrape('http://news.ycombinator.com', ['.title a', '.foo #bar', '.span .egg'], function (error, titles, foobar, spaneggs) {
+scrape('news.ycombinator.com', ['.title a', '.foo #bar', '.span .egg'], function (error, titles, foobar, spaneggs) {
  //
 })
 ```
+
+To make a post request:
+
+```js
+scrape.post({ url: 'foo.com/bar', form: { message: 'Hello World' } }, ['body .content'], function  (error, content) {
+  
+  content[0].html()
+  // => Message: 'Hello World'
+  
+})
+```
+
+See `example.js` for more information.
