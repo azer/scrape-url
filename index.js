@@ -1,6 +1,6 @@
-var debug = require("debug")('scrape-url');
-var request = require("request");
-var parse = require("cheerio").load;
+var debug    = require('debug')('scrape-url');
+var request  = require('request');
+var parse    = require('cheerio').load;
 
 module.exports = get;
 module.exports.post = post;
@@ -9,8 +9,11 @@ function post (options, selectors, callback) {
   scrape('post', options, selectors, callback);
 }
 
-function get (url, selectors, callback) {
-  scrape('get', { url: url }, selectors, callback);
+function get (optionsOrUrl, selectors, callback) {
+  if (typeof optionsOrUrl === 'string') {
+    optionsOrUrl = { url: optionsOrUrl };
+  }
+  scrape('get', optionsOrUrl, selectors, callback);
 }
 
 function scrape (method, options, selectors, callback) {
@@ -21,10 +24,17 @@ function scrape (method, options, selectors, callback) {
   request[method](options, match);
 
   function match (error, response, body) {
-    if(error) return callback(error);
-    if (response.statusCode != 200) return;
+    if (error) {
+      return callback(error);
+    }
 
-    if (typeof selectors == 'string') selectors = [selectors];
+    if (response.statusCode != 200) {
+      return;
+    }
+
+    if (typeof selectors == 'string') {
+      selectors = [selectors];
+    }
 
     var doc = parse(body);
 
