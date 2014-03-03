@@ -43,4 +43,12 @@ scrape.post({ url: 'foo.com/bar', form: { message: 'Hello World' } }, ['body .co
 })
 ```
 
+You can pass options instead of URLs:
+
+```js
+scrape({ url: 'foo.com/bar', 'headers': { 'user-agent': 'neck trimmer 5.0' } }, ['h1.title'], function (error, titles) {
+    //    
+})
+```
+
 See `example.js` for more information.
