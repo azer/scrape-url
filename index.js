@@ -4,13 +4,18 @@ var parse = require("cheerio").load;
 
 module.exports = get;
 module.exports.post = post;
+module.exports.get = get;
 
 function post (options, selectors, callback) {
   scrape('post', options, selectors, callback);
 }
 
-function get (url, selectors, callback) {
-  scrape('get', { url: url }, selectors, callback);
+function get (options, selectors, callback) {
+  if (typeof options == 'string') {
+    options = { url: options };
+  }
+
+  scrape('get', options, selectors, callback);
 }
 
 function scrape (method, options, selectors, callback) {
