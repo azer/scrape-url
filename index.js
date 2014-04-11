@@ -27,6 +27,7 @@ function scrape (method, options, selectors, callback) {
 
   function match (error, response, body) {
     if(error) return callback(error);
+    if (response.statusCode >= 400) return callback(new Error('Error - ' + response.statusCode));
     if (response.statusCode != 200) return;
 
     if (typeof selectors == 'string') selectors = [selectors];
